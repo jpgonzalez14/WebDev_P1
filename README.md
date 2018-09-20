@@ -8,15 +8,18 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-1. Install npm, mongodb.
-2. Download/clone this repository.
+Node JS
+Git
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+Clone or download the project and from the source folder:
 
-------- prep base de datos
-
+cd WebDev_P1
+npm install
+cd ..
+cd frontend
+npm install
 
 ## Deployment
 
