@@ -29,11 +29,11 @@ In another terminal, go to the folder front and write npm start.
 
 ## Authors
 
-* **Juan Pablo Gonzalez P.** [Git](https://github.com/jpgonzalez14)
+* [Juan Pablo Gonzalez P.](https://github.com/jpgonzalez14)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/jpgonzalez14/WebDev_P1/blob/master/LICENSE) file for details
 
 ## Acknowledgments
 
