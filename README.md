@@ -17,7 +17,6 @@ Clone or download the project and from the source folder:
 
 * cd WebDev_P1
 * npm install
-* cd ..
 * cd frontend
 * npm install
 
