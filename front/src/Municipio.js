@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 
 class Municipio extends Component {
@@ -8,7 +8,7 @@ class Municipio extends Component {
 
     return (
       <div>
-        <p key={this.props.municipio._id}>{this.props.municipio.departamento}</p>
+        <p>{this.props.municipio.departamento}</p>
       </div>
     );
   }
