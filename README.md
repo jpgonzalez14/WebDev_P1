@@ -8,18 +8,18 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Node JS
-Git
+* Node JS
+* Git
 
 ### Installing
 
 Clone or download the project and from the source folder:
 
-cd WebDev_P1
-npm install
-cd ..
-cd frontend
-npm install
+* cd WebDev_P1
+* npm install
+* cd ..
+* cd frontend
+* npm install
 
 ## Deployment
 
