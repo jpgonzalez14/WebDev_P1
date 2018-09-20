@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import BarChart from './LineChart';
 import Input from './Input';
-import Municipio from './Municipio';
+//import Municipio from './Municipio';
 
 class App extends Component {
 

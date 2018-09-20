@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import BarChart from './LineChart';
 
 class Input extends React.Component {
@@ -16,30 +16,35 @@ class Input extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('Json: ' + this.state.value);
+    //alert('Json: ' + this.state.value);
     //var obj = JSON.parse(this.state.value);
     event.preventDefault();
     this.setState({ submitted: true });
   }
   renderChart(){
-    console.log(this.state.submitted);
-    console.log(this.state.value);
     return  <BarChart value={this.state.value}/>
   }
 
   render() {
     return (
       <div className="container">
-      <form onSubmit={this.handleSubmit}>
-      <div className="form-group">
-        <label>
-          Enter Json:
-        </label>
-        <textarea className="form-control" rows="5" type="text" value={this.state.value} onChange={this.handleChange} />
-        <input type="submit"/>
+        <div className="row">
+          <div className="col-6">
+            <form onSubmit={this.handleSubmit}>
+            <div className="form-group">
+              <label>
+                Enter Json:
+              </label>
+              <textarea className="form-control" rows="20" type="text" value={this.state.value} onChange={this.handleChange} />
+              <input className="btn btn-primary btn-lg" type="submit"/>
+              </div>
+            </form>
+          </div>
+            <div className="col-6">
+              {this.state.submitted && this.renderChart()}
+              <div id="vis"></div>
+            </div>
         </div>
-      </form>
-      {this.state.submitted && this.renderChart()}
       </div>
     );
   }
