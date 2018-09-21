@@ -4,15 +4,19 @@ import FileGraph from './FileGraph';
 import Papa from 'papaparse';
 
 class Input extends React.Component {
+  prueba: any = null;
   constructor(props) {
     super(props);
     this.state = {value: '',
     file:'',
-  submitted: false,
-  filesubmitted: false};
+    datag:'',
+    submitted: false,
+    filesubmitted: false};
+
 
     this.updateData = this.updateData.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeFile = this.handleChangeFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -22,26 +26,34 @@ class Input extends React.Component {
 
 
   updateData(result) {
-    const data = result.data;
+    var data = result;
     console.log(data);
+    this.setState({ filesubmitted: true });
+    console.log(this.state.filesubmitted);
+    this.setState({datag: data});
+    console.log(this.state.datag);
 
-    this.setState({file: data}); 
   }
 
   handleChangeFile(event)
   {
-    event.preventDefault();
+    //event.preventDefault();
+    console.log(this.state.file);
       var datosString='';
       let file = event.target.files[0];
-      console.log(file);
+
       Papa.parse(file, {
-    		download: true,
-    		complete: this.updateData
-    		});
+          header: true,
+      		download: true,
+      		complete: (results) => {
+            console.log(results.data);
+              this.updateData(results.data);
+          	}
+      		});
   }
 
   renderChartFile(){
-    return  <FileGraph value={this.state.file}/>
+    return  <FileGraph datag={this.state.datag}/>
   }
 
   handleSubmit(event) {
@@ -55,13 +67,11 @@ class Input extends React.Component {
       } catch(e) {
           alert(e); // error in the above string (in this case, yes)!
       }
-      this.setState({ filesubmitted: true });
       this.setState({ value: obj });
       this.setState({ submitted: true });
     }
   }
   renderChart(){
-
     return  <InputGraph value={this.state.value}/>
   }
 //              <input type="file" value={this.state.value} onChange={this.handleChange} />

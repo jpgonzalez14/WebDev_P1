@@ -16,11 +16,19 @@ class FileGraph extends Component {
         "x": {"field": "b", "type": "quantitative"}
       }
     }
-    var myData = this.props.data;
-    console.log(myData);
+		/*var myData = [
+  {"a": "A","b": 28}, {"a": "B","b": 55}, {"a": "C","b": 43},
+  {"a": "D","b": 91}, {"a": "E","b": 81}, {"a": "F","b": 53},
+  {"a": "G","b": 19}, {"a": "H","b": 87}, {"a": "I","b": 52}
+];*/
+    var myData = this.props.datag;
+		console.log('datos datag'+ myData);
+		console.log(this.props.datag);
+
     const embed_opt = {"mode": "vega-lite"};
-    const el = document.getElementById('vis');
+    const el = document.getElementById('file');
     const view = vegaEmbed("#file", spec, embed_opt)
+					.catch(error => console.log(el, error))
     			.then((res) =>  res.view.insert("myData", myData).run());
 
 		return(
