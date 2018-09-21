@@ -20,10 +20,7 @@ class Navbar extends Component {
               <Link className="nav-link" to="/samples">Samples</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Last 20 Graphs</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Explore</a>
+              <Link className="nav-link" to="/explore">Explore</Link>
             </li>
           </ul>
           <span className="navbar-text">

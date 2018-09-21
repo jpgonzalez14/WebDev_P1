@@ -5,6 +5,7 @@ import './App.css';
 import Input from './Input';
 import Navbar from './Navbar';
 import InputSample from './InputSample';
+import Explore from './Explore';
 
 //import Municipio from './Municipio';
 
@@ -41,6 +42,7 @@ class App extends Component {
           <br/>
           <Route exact path="/" component={Input} />
           <Route exact path="/samples" component={InputSample} />
+          <Route exact path="/explore" component={Explore} />
 
         </div>
       </Router>

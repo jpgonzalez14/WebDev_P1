@@ -20,8 +20,10 @@ const insertDocuments = function(db, callback, data) {
   // Get the documents collection
   const collection = db.collection('parcial1');
   // Insert some documents
+  console.log('esto es dataaaaaa'+data.name);
+
   collection.insertMany([
-    {grafico : data}
+    {name : data.name}
   ], function(err, result) {
     assert.equal(err, null);
     console.log("insert 1 document");

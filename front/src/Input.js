@@ -9,6 +9,8 @@ class Input extends React.Component {
     super(props);
     this.state = {value: '',
     file:'',
+    name:'kyota',
+    title:'prueba',
     datag:'',
     valueg:'',
     submitted: false,
@@ -17,17 +19,32 @@ class Input extends React.Component {
 
     this.updateData = this.updateData.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleChange1 = this.handleChange1.bind(this);
+    this.handleChange2 = this.handleChange2.bind(this);
+    this.handleCreate = this.handleCreate.bind(this);
     this.handleChangeFile = this.handleChangeFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
     this.setState({value: event.target.value});
+    //this.setState({name: event.target.name});
+    //this.setState({title: event.target.title});
   }
-
+  handleChange1(event) {
+    //this.setState({value: event.target.value});
+    this.setState({name: event.target.name});
+    //this.setState({title: event.target.title});
+  }
+  handleChange2(event) {
+    //this.setState({value: event.target.value});
+    //this.setState({name: event.target.name});
+    this.setState({title: event.target.title});
+  }
 
   updateData(result) {
     var data = result;
+    alert('upload CSV file');
     this.setState({ filesubmitted: true });
     this.setState({datag: data});
 
@@ -58,12 +75,35 @@ class Input extends React.Component {
       try {
         obj = JSON.parse(this.state.value);
       } catch(e) {
-          alert(e); // error in the above string (in this case, yes)!
+          alert('your JSON is incomplete or has some errors'); // error in the above string (in this case, yes)!
       }
       this.setState({ valueg: obj });
       this.setState({ submitted: true });
+    } else {
+      alert('input is empty JSON');
     }
   }
+
+  handleCreate(event){
+
+    if (this.state.name === '' || this.state.title === '') {
+      alert('You have to write you Nickname and a title for the graph');
+    } else {
+      event.preventDefault();
+console.log(this.state);
+      fetch('http://localhost:3001/create', {
+       method: 'post',
+       body: {
+         "name": this.state.name,
+         "title": this.state.title,
+         "data": this.state.datag,
+         "spec": this.state.valueg
+       }
+      }).then(res => console.log(res));;
+    }
+
+
+ };
   /*renderChart(){
     return  <InputGraph value={this.state.value}/>
   }*/
@@ -85,7 +125,6 @@ class Input extends React.Component {
             </div>
               <label>
               <br/>
-
                 <h1>You can write your graph spec here:</h1>
               </label>
               <textarea className="form-control" rows="20" type="text" value={this.state.value} onChange={this.handleChange} />
@@ -95,10 +134,26 @@ class Input extends React.Component {
             </form>
           </div>
             <div className="col-7">
+            <form onSubmit={this.handleCreate}>
+            <label>
+              <h1>Save graph</h1>
+            </label>
+            <div className="form-row">
+              <div className="col">
+                <input type="text" className="form-control" placeholder="Nickname" value={this.state.name} onChange={this.handleChange1}/>
+              </div>
+              <div className="col">
+                <input type="text" className="form-control" placeholder="Title" value={this.state.title} onChange={this.handleChange2}/>
+              </div>
+              <div className="col">
+                <button type="submit" className="btn btn-warning">Save</button>
+              </div>
+            </div>
+          </form>
+          <br/>
             <h1>Your graph will appear here!</h1>
               {this.state.submitted && this.state.filesubmitted && this.renderChartFile()}
               <div id="file"></div>
-              
             </div>
         </div>
       </div>
