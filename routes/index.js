@@ -7,7 +7,7 @@ const assert = require('assert');
 
 const findDocuments = function(db, callback) {
   // Get the documents collection //nombre_de_la_tabla
-  const collection = db.collection('consulta');
+  const collection = db.collection('parcial1');
   // Find some documents
   collection.find({}).toArray(function(err, docs) {
     assert.equal(err, null);
@@ -19,10 +19,10 @@ const findDocuments = function(db, callback) {
 
 function getConsulta(callback){
   // Connection URL
-  const url = 'mongodb://localhost:27017';
+  const url = 'mongodb://parcial1:parcial1@ds237922.mlab.com:37922/heroku_4zkldxjp';
 
   // Database Name // este se debe cambiar por el nombre que yo cree para la base de datos
-  const dbName = 'consultaPrueba';
+  const dbName = 'heroku_4zkldxjp';
 
   // Use connect method to connect to the server
   MongoClient.connect(url, function(err, client) {

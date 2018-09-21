@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import vegaEmbed from 'vega-embed';
 
-class LineChart extends Component {
+class InputGraph extends Component {
 
 	render() {
     var config = {
@@ -17,11 +17,11 @@ class LineChart extends Component {
     };
     var data = this.props.value;
     //var dataparse = JSON.stringify(data, null, 2);
-    var obj = JSON.parse(data);
-    console.log(obj);
-    vegaEmbed('#vis', obj, { config: config, tooltip: { theme: 'dark' }, defaultStyle: true })
+    //var obj = JSON.parse(data);
+    //console.log(obj);
+    vegaEmbed('#input', data, { config: config, tooltip: { theme: 'dark' }, defaultStyle: true })
     .then(function (result) {
-      console.log(obj);
+      console.log(data);
     }).catch(console.error);
 
 		return(
@@ -30,4 +30,4 @@ class LineChart extends Component {
 	}
 
 }
-export default LineChart;
+export default InputGraph;
