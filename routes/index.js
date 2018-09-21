@@ -23,7 +23,7 @@ const insertDocuments = function(db, callback, data) {
   console.log('esto es dataaaaaa'+data.name);
 
   collection.insertMany([
-    {name : data.name}
+    {graph : data}
   ], function(err, result) {
     assert.equal(err, null);
     console.log("insert 1 document");

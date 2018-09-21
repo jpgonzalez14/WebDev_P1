@@ -91,13 +91,11 @@ class Input extends React.Component {
     } else {
       event.preventDefault();
 console.log(this.state);
+console.log(JSON.stringify(this.state));
       fetch('http://localhost:3001/create', {
        method: 'post',
        body: {
-         "name": this.state.name,
-         "title": this.state.title,
-         "data": this.state.datag,
-         "spec": this.state.valueg
+         "graph": JSON.stringify(this.state)
        }
       }).then(res => console.log(res));;
     }
