@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import './App.css';
 import Input from './Input';
+import Navbar from './Navbar';
+import InputSample from './InputSample';
+
 //import Municipio from './Municipio';
 
 class App extends Component {
@@ -29,16 +34,17 @@ class App extends Component {
   }*/
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">WebDev Parcial</h1>
-        </header>
-        <br/>
-        <br/>
-        <Input/>
+      <Router>
+        <div className="App">
+          <Navbar/>
+          <br/>
+          <br/>
+          <Route exact path="/" component={Input} />
+          <Route exact path="/samples" component={InputSample} />
 
+        </div>
+      </Router>
 
-      </div>
     );
   }
 }
