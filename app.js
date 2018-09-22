@@ -22,6 +22,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+// Server static assets if in production
+  // Set static folder
+  app.use(express.static('front/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'front', 'build', 'index.html'));
+  });
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
