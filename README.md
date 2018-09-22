@@ -2,10 +2,6 @@
 
 First exam for WebDev class. Its a web app built with Node, Express and React.
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
 
 * Node JS
@@ -28,6 +24,9 @@ In another terminal, go to the folder front and write npm start.
 ## Built With
 
 * [Vega-embed](https://www.npmjs.com/package/vega-embed) - The web graphs views
+
+![Screenshot](https://jpgonzalez14.github.io/p1.png)
+
 
 ## Authors
 
